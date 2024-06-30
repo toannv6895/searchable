@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: searchable
+  datasource:
+    url: jdbc:postgresql://localhost:5432/searchable-example
+    username: postgres
+    password: postgres
+  flyway:
+    schemas: public
+server:
+  port: 9000

@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.3.1"
 	id("io.spring.dependency-management") version "1.1.5"
+	id("nu.studer.jooq") version "5.2.1"
 }
 
 group = "com.toannguyen"
@@ -37,6 +38,8 @@ dependencies {
 	compileOnly("org.mapstruct:mapstruct:1.5.5.Final")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
 	implementation("org.flywaydb:flyway-core:9.22.3")
+	implementation("org.jooq:jooq:3.19.6")
+	implementation("org.jooq:jooq-codegen:3.19.3")
 }
 
 tasks.withType<Test> {

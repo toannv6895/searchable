@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerServiceImpl implements CustomerJpaService {
+public class CustomerJpaServiceImpl implements CustomerJpaService {
     private final SearchBuilder searchBuilder;
     private final CustomerJpaRepository customerRepository;
     private final CustomerJpaMapper customerJpaMapper;

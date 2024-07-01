@@ -153,12 +153,12 @@ public class SearchBuilder<C, R> {
         }
 
         if (filter instanceof StringFilter stringFilter) {
-            condition.and(jooqQueryService.buildSpecification(stringFilter, jooqField));
+            condition = condition.and(jooqQueryService.buildSpecification(stringFilter, jooqField));
         } else if (filter instanceof RangeFilter rangeFilter) {
-            condition.and(jooqQueryService.buildSpecification(rangeFilter, jooqField));
+            condition = condition.and(jooqQueryService.buildSpecification(rangeFilter, jooqField));
         }
         else {
-            condition.and(jooqQueryService.buildSpecification(filter, jooqField));
+            condition = condition.and(jooqQueryService.buildSpecification(filter, jooqField));
         }
 
         return condition;

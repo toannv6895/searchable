@@ -2,6 +2,7 @@ package com.toannguyen.searchable.service.impl;
 
 import com.toannguyen.searchable.criteria.CustomerJooqCriteria;
 import com.toannguyen.searchable.dto.CustomerJooqDto;
+import com.toannguyen.searchable.filter.CustomerJooqFilter;
 import com.toannguyen.searchable.mapper.CustomerJooqMapper;
 import com.toannguyen.searchable.repository.CustomerJooqRepository;
 import com.toannguyen.searchable.search.SearchBuilder;
@@ -16,7 +17,6 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CustomerJooqServiceImpl implements CustomerJooqService {
-    private final SearchBuilder searchBuilder;
     private final CustomerJooqRepository customerRepository;
     private final CustomerJooqMapper customerJooqMapper;
     private final CustomerJooqRepository customerJooqRepository;
@@ -31,7 +31,7 @@ public class CustomerJooqServiceImpl implements CustomerJooqService {
 
     @Override
     public List<CustomerJooqDto> findAll(CustomerJooqCriteria customerJooqCriteria) {
-        var condition = (Condition) searchBuilder.createSearch(customerJooqCriteria);
+        var condition = (Condition) CustomerJooqFilter.toCondition(customerJooqCriteria);
         var customerList = customerJooqRepository.findAll(condition);
         var customerListDto = customerJooqMapper.toDto(customerList);
         return customerListDto;
